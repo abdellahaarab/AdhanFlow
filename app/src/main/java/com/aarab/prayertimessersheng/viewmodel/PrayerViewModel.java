@@ -48,6 +48,10 @@ public class PrayerViewModel extends AndroidViewModel {
                     PrayerTime pt = times.get(0);
                     today.postValue(pt);
                     status.postValue("✓ آخر تحديث: " + pt.date);
+                    
+                    // Schedule alarms whenever we load today's times successfully
+                    com.aarab.prayertimessersheng.alarm.AlarmScheduler.scheduleAll(getApplication(), pt);
+                    
                     computeNextPrayer(pt);
                 }
             }

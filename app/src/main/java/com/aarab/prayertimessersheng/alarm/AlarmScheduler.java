@@ -35,11 +35,23 @@ public class AlarmScheduler {
     // ─── private ─────────────────────────────────────────────────────────────
 
     private static void schedule(Context ctx, String key, String nameAr, String timeStr) {
-        if (timeStr == null || timeStr.equals("--:--")) return;
+        AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+        if (am == null) return;
 
+        PendingIntent pi = buildPendingIntent(ctx, key, nameAr,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+        // 1. If time is invalid or adhan is disabled for this prayer -> Cancel any existing alarm
         SharedPreferences prefs = ctx.getSharedPreferences("settings", Context.MODE_PRIVATE);
-        if (!prefs.getBoolean("adhan_" + key + "_enabled", true)) return;
+        boolean enabled = prefs.getBoolean("adhan_" + key + "_enabled", true) 
+                       && prefs.getBoolean("adhan_enabled", true);
 
+        if (timeStr == null || timeStr.equals("--:--") || !enabled) {
+            am.cancel(pi);
+            return;
+        }
+
+        // 2. Parse time
         String[] parts = timeStr.split(":");
         if (parts.length < 2) return;
 
@@ -54,17 +66,16 @@ public class AlarmScheduler {
             cal.add(Calendar.DAY_OF_YEAR, 1);
         }
 
-        Intent intent = new Intent(ctx, AdhanReceiver.class);
-        intent.putExtra("prayer_name", nameAr);
-        intent.putExtra("prayer_key",  key);
-
-        PendingIntent pi = buildPendingIntent(ctx, key, nameAr,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-
-        AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
-        if (am != null) {
-            am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pi);
+        // 3. Set exact alarm (requires SCHEDULE_EXACT_ALARM on Android 12+)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            if (!am.canScheduleExactAlarms()) {
+                // If we can't schedule exact, fallback to inexact or notify user
+                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pi);
+                return;
+            }
         }
+        
+        am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pi);
     }
 
     private static PendingIntent buildPendingIntent(Context ctx, String key,

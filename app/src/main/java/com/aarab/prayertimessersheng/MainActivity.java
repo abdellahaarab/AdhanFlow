@@ -19,6 +19,7 @@ import androidx.work.WorkManager;
 
 import com.aarab.prayertimessersheng.data.PrayerTime;
 import com.aarab.prayertimessersheng.databinding.ActivityMainBinding;
+import com.aarab.prayertimessersheng.receiver.AdhanReceiver;
 import com.aarab.prayertimessersheng.viewmodel.PrayerViewModel;
 import com.aarab.prayertimessersheng.worker.SyncWorker;
 
@@ -49,11 +50,42 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel = new ViewModelProvider(this).get(PrayerViewModel.class);
 
+        requestPermissions();
         observeViewModel();
         setupClicks();
         scheduleBackgroundSync();
 
+
+
         viewModel.loadToday();
+    }
+
+//    private void testAdhanNotification() {
+//
+//        Intent intent = new Intent(this, AdhanReceiver.class);
+//        intent.putExtra("prayer_name", "");
+//
+//        // Trigger receiver immediately
+//        sendBroadcast(intent);
+//    }
+
+    private void requestPermissions() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            String perm = android.Manifest.permission.POST_NOTIFICATIONS;
+            if (ContextCompat.checkSelfPermission(this, perm) != 
+                android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                androidx.core.app.ActivityCompat.requestPermissions(this, new String[]{perm}, 101);
+            }
+        }
+        
+        // Exact Alarm permission check for Android 12+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            android.app.AlarmManager am = (android.app.AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            if (am != null && !am.canScheduleExactAlarms()) {
+                Intent intent = new Intent(android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                startActivity(intent);
+            }
+        }
     }
 
     @Override
