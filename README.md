@@ -1,4 +1,4 @@
-add button to downlod the app : # 🕌 Adhan Prayer Times App (Android)
+# 🕌 Adhan Prayer Times App (Android)
 
 A modern Android application that provides accurate prayer times, Adhan notifications, and offline support for Morocco 🇲🇦 .
 
