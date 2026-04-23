@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:layoutDirection="rtl">
+
+    <!-- Full-screen scroll -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="48dp"
+            android:paddingBottom="32dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- ── Header ─────────────────────────────────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+
+                <!-- FAB: Settings -->
+                <ImageView
+                    android:id="@+id/btnSettings"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/fab_bg"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_off"
+                    android:contentDescription="@string/cd_settings"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <View android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+
+                <!-- FAB: Qibla -->
+                <ImageView
+                    android:id="@+id/btnQibla"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/fab_bg"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_mosque"
+                    android:contentDescription="@string/cd_qibla"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- Bismillah -->
+            <TextView
+                android:id="@+id/tvBismillah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bismillah"
+                android:textColor="#D4AF37"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:fontFamily="@font/font_ar"
+                android:layout_marginBottom="4dp" />
+
+            <!-- App Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/prayer_times_title"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:fontFamily="@font/font_ar"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Hijri Date -->
+            <TextView
+                android:id="@+id/tvHijriDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="—"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="@dimen/text_hijri"
+                android:gravity="center"
+                android:fontFamily="@font/font_ar"
+                android:layout_marginBottom="2dp"/>
+
+            <!-- City name (tappable) -->
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="إفران"
+                android:textColor="@color/colorGold"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:fontFamily="@font/font_ar"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- ── Progress bar ───────────────────────────────── -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:indeterminate="true"
+                android:progressTint="@color/colorGold"
+                android:indeterminateTint="@color/colorGold"
+                android:visibility="gone"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- ── Next Prayer Card ───────────────────────────── -->
+            <LinearLayout
+                android:id="@+id/cardNextPrayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_next_prayer"
+                android:elevation="10dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next_prayer"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="13sp"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="6dp"/>
+
+                <TextView
+                    android:id="@+id/tvNextPrayerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textColor="@color/colorGold"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font_ar"
+                    android:layout_marginBottom="2dp"/>
+
+                <TextView
+                    android:id="@+id/tvNextPrayerTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--:--"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Countdown clock -->
+                <TextView
+                    android:id="@+id/tvCountdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00:00"
+                    android:textColor="@color/colorGoldLight"
+                    android:textSize="@dimen/text_countdown"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/countdown_label"
+                    android:textColor="@color/colorTextMuted"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <!-- ── Today's Prayers Label ──────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/today_prayers"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="13sp"
+                android:letterSpacing="0.1"
+                android:gravity="center"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- ── Prayer Cards ────────────────────────────────── -->
+
+            <!-- Fajr -->
+            <LinearLayout
+                android:id="@+id/cardFajr"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/card_prayer"
+                android:elevation="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fajr"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/text_prayer_name"
+                    android:fontFamily="@font/font_ar"/>
+
+                <TextView
+                    android:id="@+id/tvFajrTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--:--"
+                    android:textColor="@color/colorGoldLight"
+                    android:textSize="@dimen/text_prayer_time"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <!-- Sunrise -->
+            <LinearLayout
+                android:id="@+id/cardSunrise"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/card_prayer"
+                android:elevation="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/sunrise"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/text_prayer_name"
+                    android:fontFamily="@font/font_ar"/>
+
+                <TextView
+                    android:id="@+id/tvSunriseTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--:--"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/text_prayer_time"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <!-- Dhuhr -->
+            <LinearLayout
+                android:id="@+id/cardDhuhr"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/card_prayer"
+                android:elevation="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/dhuhr"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/text_prayer_name"
+                    android:fontFamily="@font/font_ar"/>
+
+                <TextView
+                    android:id="@+id/tvDhuhrTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--:--"
+                    android:textColor="@color/colorGoldLight"
+                    android:textSize="@dimen/text_prayer_time"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <!-- Asr -->
+            <LinearLayout
+                android:id="@+id/cardAsr"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/card_prayer"
+                android:elevation="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/asr"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/text_prayer_name"
+                    android:fontFamily="@font/font_ar"/>
+
+                <TextView
+                    android:id="@+id/tvAsrTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--:--"
+                    android:textColor="@color/colorGoldLight"
+                    android:textSize="@dimen/text_prayer_time"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <!-- Maghrib -->
+            <LinearLayout
+                android:id="@+id/cardMaghrib"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/card_prayer"
+                android:elevation="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/maghrib"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/text_prayer_name"
+                    android:fontFamily="@font/font_ar"/>
+
+                <TextView
+                    android:id="@+id/tvMaghribTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--:--"
+                    android:textColor="@color/colorGoldLight"
+                    android:textSize="@dimen/text_prayer_time"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <!-- Isha -->
+            <LinearLayout
+                android:id="@+id/cardIsha"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/card_prayer"
+                android:elevation="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/isha"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/text_prayer_name"
+                    android:fontFamily="@font/font_ar"/>
+
+                <TextView
+                    android:id="@+id/tvIshaTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--:--"
+                    android:textColor="@color/colorGoldLight"
+                    android:textSize="@dimen/text_prayer_time"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <!-- Status -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/loading"
+                android:textColor="@color/colorTextMuted"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:fontFamily="@font/font_ar"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

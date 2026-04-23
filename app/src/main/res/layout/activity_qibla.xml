@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:layoutDirection="rtl">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvQiblaTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/qibla_title"
+        android:textColor="@color/colorGold"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:fontFamily="@font/font_ar"
+        android:paddingTop="48dp"
+        android:layout_alignParentTop="true"/>
+
+    <!-- Compass view — fills centre of screen -->
+    <com.aarab.prayertimessersheng.ui.QiblaCompassView
+        android:id="@+id/compassView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"/>
+
+    <!-- Info card at bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/card_prayer"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp">
+
+        <TextView
+            android:id="@+id/tvQiblaDegrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0° نحو القبلة"
+            android:textColor="@color/colorGold"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_ar"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvQiblaDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="المسافة إلى مكة المكرمة: — كم"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="13sp"
+            android:fontFamily="@font/font_ar"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvQiblaInstruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qibla_instruction"
+            android:textColor="@color/colorTextMuted"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:fontFamily="@font/font_ar"/>
+    </LinearLayout>
+
+</RelativeLayout>

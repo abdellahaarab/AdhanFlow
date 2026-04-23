@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:layoutDirection="rtl">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="48dp"
+            android:paddingBottom="40dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_title"
+                android:textColor="@color/colorGold"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:fontFamily="@font/font_ar"
+                android:layout_marginBottom="28dp"/>
+
+            <!-- ── City ─────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_city"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="13sp"
+                android:fontFamily="@font/font_ar"
+                android:layout_marginBottom="6dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/card_prayer"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/colorTextPrimary"/>
+
+            <!-- ── Calculation Method ────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_method"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="13sp"
+                android:fontFamily="@font/font_ar"
+                android:layout_marginBottom="6dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerMethod"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/card_prayer"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/colorTextPrimary"/>
+
+            <!-- ── Madhhab ────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_madhhab"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="13sp"
+                android:fontFamily="@font/font_ar"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:id="@+id/rgMadhhab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <RadioButton
+                    android:id="@+id/rbShafi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_madhhab_shafi"
+                    android:textColor="@color/colorTextPrimary"
+                    android:buttonTint="@color/colorGold"
+                    android:fontFamily="@font/font_ar"
+                    android:textSize="13sp"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/rbHanafi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_madhhab_hanafi"
+                    android:textColor="@color/colorTextPrimary"
+                    android:buttonTint="@color/colorGold"
+                    android:fontFamily="@font/font_ar"
+                    android:textSize="13sp"/>
+            </RadioGroup>
+
+            <!-- ── Notifications ─────────────────────────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_prayer"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_notifications"
+                    android:textColor="@color/colorGold"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/font_ar"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Global enable -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_adhan_enable"
+                        android:textColor="@color/colorTextPrimary"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/font_ar"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchAdhan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"/>
+                </LinearLayout>
+
+                <!-- Volume -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_adhan_volume"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/font_ar"
+                    android:layout_marginBottom="6dp"/>
+
+                <SeekBar
+                    android:id="@+id/seekVolume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressTint="@color/colorGold"
+                    android:thumbTint="@color/colorGold"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Per-prayer toggles -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_per_prayer"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/font_ar"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/fajr" android:textColor="@color/colorTextPrimary" android:textSize="14sp" android:fontFamily="@font/font_ar"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchFajr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/dhuhr" android:textColor="@color/colorTextPrimary" android:textSize="14sp" android:fontFamily="@font/font_ar"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchDhuhr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/asr" android:textColor="@color/colorTextPrimary" android:textSize="14sp" android:fontFamily="@font/font_ar"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchAsr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/maghrib" android:textColor="@color/colorTextPrimary" android:textSize="14sp" android:fontFamily="@font/font_ar"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchMaghrib" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/isha" android:textColor="@color/colorTextPrimary" android:textSize="14sp" android:fontFamily="@font/font_ar"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchIsha" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ── Save Button ───────────────────────────────── -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="@string/settings_save"
+                android:textSize="16sp"
+                android:fontFamily="@font/font_ar"
+                android:backgroundTint="@color/colorGold"
+                android:textColor="@color/colorBackground"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tvSaved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_saved"
+                android:textColor="#4CAF50"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:fontFamily="@font/font_ar"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

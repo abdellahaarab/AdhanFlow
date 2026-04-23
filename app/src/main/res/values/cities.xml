@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- API city names (English, sent to AlAdhan) -->
+    <string-array name="morocco_cities">
+        <item>Ifrane</item>
+        <item>Fes</item>
+        <item>Rabat</item>
+        <item>Casablanca</item>
+        <item>Marrakech</item>
+        <item>Tanger</item>
+        <item>Nador</item>
+        <item>Agadir</item>
+        <item>Meknes</item>
+        <item>Tetouan</item>
+        <item>Oujda</item>
+        <item>Safi</item>
+        <item>Kenitra</item>
+        <item>Khouribga</item>
+        <item>Beni Mellal</item>
+        <item>El Jadida</item>
+        <item>Taza</item>
+        <item>Laayoune</item>
+        <item>Dakhla</item>
+    </string-array>
+
+    <!-- Arabic display names (same order) -->
+    <string-array name="morocco_cities_ar">
+        <item>إفران</item>
+        <item>فاس</item>
+        <item>الرباط</item>
+        <item>الدار البيضاء</item>
+        <item>مراكش</item>
+        <item>طنجة</item>
+        <item>الناظور</item>
+        <item>أكادير</item>
+        <item>مكناس</item>
+        <item>تطوان</item>
+        <item>وجدة</item>
+        <item>آسفي</item>
+        <item>القنيطرة</item>
+        <item>خريبكة</item>
+        <item>بني ملال</item>
+        <item>الجديدة</item>
+        <item>تازة</item>
+        <item>العيون</item>
+        <item>الداخلة</item>
+    </string-array>
+
+    <!-- Calculation method display names -->
+    <string-array name="calc_methods">
+        <item>المغرب (الطريقة الرسمية)</item>
+        <item>رابطة العالم الإسلامي</item>
+        <item>هيئة الشمال أمريكا (ISNA)</item>
+        <item>مصر (وزارة الأوقاف)</item>
+        <item>أم القرى (مكة المكرمة)</item>
+        <item>كراتشي</item>
+        <item>الكويت</item>
+        <item>قطر</item>
+        <item>سنغافورة</item>
+        <item>تركيا (ديانت)</item>
+        <item>فرنسا</item>
+    </string-array>
+
+    <!-- Method IDs matching the array above -->
+    <integer-array name="calc_method_ids">
+        <item>21</item>
+        <item>3</item>
+        <item>2</item>
+        <item>5</item>
+        <item>4</item>
+        <item>1</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>13</item>
+        <item>12</item>
+    </integer-array>
+</resources>

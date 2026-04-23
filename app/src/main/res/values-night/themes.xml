@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Night variant inherits the main dark Islamic theme — no changes needed -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.PrayerApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/colorTextPrimary</item>
+        <item name="colorSecondary">@color/colorGold</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:statusBarColor">@color/colorBackground</item>
+        <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="android:fontFamily">@font/font_ar</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:layoutDirection">rtl</item>
+    </style>
+</resources>

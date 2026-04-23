@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_prayer"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layoutDirection="rtl">
+
+    <!-- Prayer name row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_mosque"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tvNotifPrayerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="أذان الفجر"
+            android:textColor="@color/colorGold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_ar"/>
+
+        <!-- Stop button -->
+        <ImageView
+            android:id="@+id/btnMute"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_off"
+            android:background="@drawable/fab_bg"
+            android:padding="8dp"
+            android:layout_marginStart="4dp"/>
+
+        <!-- Volume Down -->
+        <ImageView
+            android:id="@+id/btnVolDown"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_volume_down"
+            android:background="@drawable/fab_bg"
+            android:padding="8dp"
+            android:layout_marginStart="4dp"/>
+
+        <!-- Volume Up -->
+        <ImageView
+            android:id="@+id/btnVolUp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_volume_up"
+            android:background="@drawable/fab_bg"
+            android:padding="8dp"
+            android:layout_marginStart="4dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ"
+        android:textColor="@color/colorTextSecondary"
+        android:textSize="13sp"
+        android:fontFamily="@font/font_ar"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>

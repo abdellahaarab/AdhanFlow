@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">مواقيت الصلاة</string>
+    <string name="app_subtitle">إفران — المغرب</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_qibla">القبلة</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <!-- Prayer names -->
+    <string name="fajr">الفجر</string>
+    <string name="sunrise">الشروق</string>
+    <string name="dhuhr">الظهر</string>
+    <string name="asr">العصر</string>
+    <string name="maghrib">المغرب</string>
+    <string name="isha">العشاء</string>
+
+    <!-- Home screen -->
+    <string name="next_prayer">الصلاة القادمة</string>
+    <string name="prayer_times_title">مواقيت الصلاة</string>
+    <string name="today_prayers">صلوات اليوم</string>
+    <string name="loading">جارٍ التحميل…</string>
+    <string name="offline_mode">وضع غير متصل</string>
+    <string name="last_updated">آخر تحديث</string>
+    <string name="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</string>
+
+    <!-- Countdown -->
+    <string name="countdown_label">الوقت المتبقي</string>
+    <string name="hours_minutes_seconds">%1$02d:%2$02d:%3$02d</string>
+
+    <!-- Qibla -->
+    <string name="qibla_title">اتجاه القبلة</string>
+    <string name="qibla_degrees">%1$.1f° نحو القبلة</string>
+    <string name="qibla_instruction">وجّه الجهاز لتحديد اتجاه القبلة</string>
+    <string name="qibla_distance">المسافة إلى مكة المكرمة: %1$.0f كم</string>
+    <string name="mecca">مكة المكرمة</string>
+
+    <!-- Settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_city">المدينة</string>
+    <string name="settings_city_hint">اختر مدينة</string>
+    <string name="settings_method">طريقة الحساب</string>
+    <string name="settings_madhhab">المذهب (وقت العصر)</string>
+    <string name="settings_madhhab_shafi">الشافعي / المالكي / الحنبلي</string>
+    <string name="settings_madhhab_hanafi">الحنفي</string>
+    <string name="settings_notifications">إشعارات الأذان</string>
+    <string name="settings_adhan_enable">تفعيل الأذان</string>
+    <string name="settings_adhan_volume">مستوى صوت الأذان</string>
+    <string name="settings_per_prayer">ضبط كل صلاة</string>
+    <string name="settings_save">حفظ الإعدادات</string>
+    <string name="settings_saved">تم حفظ الإعدادات ✓</string>
+
+    <!-- Errors -->
+    <string name="error_no_internet">لا يوجد اتصال بالإنترنت</string>
+    <string name="error_generic">حدث خطأ، يرجى المحاولة مرة أخرى</string>
+    <string name="error_no_data">لا توجد بيانات متاحة</string>
+
+    <!-- Content descriptions (accessibility) -->
+    <string name="cd_mosque_icon">أيقونة مسجد</string>
+    <string name="cd_settings">إعدادات</string>
+    <string name="cd_qibla">القبلة</string>
+</resources>

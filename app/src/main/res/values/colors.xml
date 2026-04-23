@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ── Backgrounds ── -->
+    <color name="colorBackground">#0C1A2E</color>
+    <color name="colorSurface">#102440</color>
+    <color name="colorCard">#162E4E</color>
+    <color name="colorCardAlt">#1A3560</color>
+
+    <!-- ── Brand / Primary ── -->
+    <color name="colorPrimary">#1B4332</color>
+    <color name="colorPrimaryDark">#0D2B1F</color>
+    <color name="colorPrimaryLight">#2D6A4F</color>
+
+    <!-- ── Gold accent ── -->
+    <color name="colorGold">#D4AF37</color>
+    <color name="colorGoldLight">#F0D060</color>
+    <color name="colorGoldDim">#8B7520</color>
+
+    <!-- ── Text ── -->
+    <color name="colorTextPrimary">#EAD9B8</color>
+    <color name="colorTextSecondary">#9DB4CC</color>
+    <color name="colorTextMuted">#5A7A9A</color>
+
+    <!-- ── State ── -->
+    <color name="colorNextPrayer">#D4AF37</color>
+    <color name="colorActive">#2D6A4F</color>
+    <color name="colorDivider">#1E3A5F</color>
+    <color name="colorError">#E57373</color>
+
+    <!-- ── Kept for compat ── -->
+    <color name="purple_500">#bb86fc</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>
